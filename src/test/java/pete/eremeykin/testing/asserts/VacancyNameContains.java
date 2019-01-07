@@ -15,7 +15,7 @@ class VacancyNameContains extends TypeSafeMatcher<Vacancy> {
 
     @Override
     protected boolean matchesSafely(Vacancy vacancy) {
-        return vacancy.getName().contains(substring);
+        return vacancy.getName().toLowerCase().contains(substring);
     }
 
     @Override

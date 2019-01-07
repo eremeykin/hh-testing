@@ -17,6 +17,7 @@ public class ApiClient {
     private static final String PATH = "vacancies";
     private static final String PARAM_TEXT = "text";
     private static final URIBuilder uriBuilder = new URIBuilder();
+    private static final String URL = PROTOCOL + "://" + HOST + "/" + PATH + "?" + PARAM_TEXT + "=";
 
     static {
         uriBuilder.setScheme(PROTOCOL);
@@ -29,6 +30,13 @@ public class ApiClient {
         URI uri = uriBuilder.build();
         System.out.println(uri.toString());
         HttpGet request = new HttpGet(uri);
+        HttpClient client = HttpClientBuilder.create().build();
+        HttpResponse response = client.execute(request);
+        return new Response(response);
+    }
+
+    public static Response getRaw(String name) throws IOException {
+        HttpGet request = new HttpGet(URL + name);
         HttpClient client = HttpClientBuilder.create().build();
         HttpResponse response = client.execute(request);
         return new Response(response);
