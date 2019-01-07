@@ -18,7 +18,7 @@ class BaseTest {
 
     void test(String name) throws IOException, URISyntaxException {
         this.name = name;
-        this.response = ApiClient.getRaw(name.replace(" ", "%20"));
+        this.response = ApiClient.get(name);
         this.vacancies = Vacancy.fromJson(response.getText());
     }
 }
