@@ -1,4 +1,4 @@
-package pete.eremeykin.testing.pete.eremeykin.testing.apiclient;
+package pete.eremeykin.testing.apiclient;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
