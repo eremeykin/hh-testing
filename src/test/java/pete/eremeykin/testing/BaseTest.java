@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.List;
 
-class BaseTest {
+abstract class BaseTest {
 
     static final int DEFAULT_ITEMS_NUM = 20;
 
