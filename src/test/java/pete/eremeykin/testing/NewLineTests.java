@@ -19,7 +19,7 @@ public class NewLineTests extends BaseTest {
         test("Сортировщик");
         assertThat(response, statusIsOk());
         assertThat(vacancies, hasSize(DEFAULT_ITEMS_NUM));
-//        assertThat(vacancies, everyItem(nameContains(name)));
+//        assertThat(vacancies, everyItem(nameContains(parameter)));
     }
 
     @Test

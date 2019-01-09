@@ -7,26 +7,22 @@ import java.net.URISyntaxException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasSize;
-import static org.hamcrest.core.Every.everyItem;
 import static pete.eremeykin.testing.asserts.ResponseMatchers.statusIsOk;
-import static pete.eremeykin.testing.asserts.VacancyMatchers.nameContains;
 
-public class LettersCaseTest extends BaseTest {
+public class SqlInjectionTest extends BaseTest {
 
     @Test
-    public void upperCase() throws IOException, URISyntaxException {
-        test("СЛЕСАРЬ");
+    public void singleQuote() throws IOException, URISyntaxException {
+        test("Сортировщик' OR 1=1 -- 1");
         assertThat(response, statusIsOk());
         assertThat(vacancies, hasSize(DEFAULT_ITEMS_NUM));
-        assertThat(vacancies, everyItem(nameContains(parameter)));
     }
 
     @Test
-    public void randomCase() throws IOException, URISyntaxException {
-        test("сЛЕСарь");
+    public void doubleQuotes() throws IOException, URISyntaxException {
+        test("Сортировщик\" OR 1=1");
         assertThat(response, statusIsOk());
         assertThat(vacancies, hasSize(DEFAULT_ITEMS_NUM));
-        assertThat(vacancies, everyItem(nameContains(parameter)));
     }
 
 }

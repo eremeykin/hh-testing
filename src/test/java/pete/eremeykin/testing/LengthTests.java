@@ -24,11 +24,18 @@ public class LengthTests extends BaseTest {
     }
 
     @Test
+    public void singleCharName() throws IOException, URISyntaxException {
+        test("г");
+        assertThat(response, statusIsOk());
+        assertThat(vacancies, hasSize(DEFAULT_ITEMS_NUM));
+    }
+
+    @Test
     public void shortName() throws IOException, URISyntaxException {
         test("гид");
         assertThat(response, statusIsOk());
         assertThat(vacancies, hasSize(DEFAULT_ITEMS_NUM));
-        assertThat(vacancies, everyItem(nameContains(name)));
+        assertThat(vacancies, everyItem(nameContains(parameter)));
     }
 
 
@@ -37,7 +44,7 @@ public class LengthTests extends BaseTest {
         test("Менеджер");
         assertThat(response, statusIsOk());
         assertThat(vacancies, hasSize(DEFAULT_ITEMS_NUM));
-        assertThat(vacancies, everyItem(nameContains(name)));
+        assertThat(vacancies, everyItem(nameContains(parameter)));
     }
 
 
@@ -60,6 +67,6 @@ public class LengthTests extends BaseTest {
 
         test(extraLongString);
         assertThat(response, statusIsBadGateway());
-        assertThat(vacancies, everyItem(nameContains(name)));
+        assertThat(vacancies, everyItem(nameContains(parameter)));
     }
 }
