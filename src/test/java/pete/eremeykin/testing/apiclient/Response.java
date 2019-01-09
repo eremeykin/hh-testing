@@ -47,6 +47,6 @@ public class Response {
         } catch (IOException e) {
             pretty = "broken json";
         }
-        return "Response: " + pretty;
+        return "Response [" + getCode() + "]: " + pretty;
     }
 }

@@ -14,10 +14,10 @@ abstract class BaseTest {
 
     Response response;
     List<Vacancy> vacancies;
-    String name;
+    String parameter;
 
     void test(String name) throws IOException, URISyntaxException {
-        this.name = name;
+        this.parameter = name;
         this.response = ApiClient.get(name);
         this.vacancies = Vacancy.fromJson(response.getText());
     }
