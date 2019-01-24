@@ -10,7 +10,7 @@ import java.util.List;
 public class Vacancy {
     private String name;
 
-    public Vacancy(String name) {
+    private Vacancy(String name) {
         this.name = name;
     }
 

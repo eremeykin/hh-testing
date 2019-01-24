@@ -45,11 +45,10 @@ public class StrangeSymbolsTest extends BaseTest {
         }
     }
 
-    @Parameterized.Parameters(name = "{index}: name={0}")
+    @Parameterized.Parameters(name = "{index}: parameter={0}")
     public static Iterable<Object[]> data() throws IOException {
         readBlns();
         List<Object[]> dataList = new ArrayList<>();
-        dataList.add(new Object[]{"                                "});
         for (BlnIndex index : BlnIndex.values()) {
             for (int i = index.start; i < index.end; i++) {
                 dataList.add(new Object[]{blns[i]});

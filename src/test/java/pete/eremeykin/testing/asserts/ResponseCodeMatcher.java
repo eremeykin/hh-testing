@@ -6,7 +6,6 @@ import pete.eremeykin.testing.apiclient.Response;
 
 class ResponseCodeMatcher extends TypeSafeMatcher<Response> {
 
-    //    private static final int CODE_OK = 200;
     private final int expectedCode;
 
     ResponseCodeMatcher(int expectedCode) {

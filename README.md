@@ -9,4 +9,4 @@
 
 * `blns.json` - список опасных строк из репозитория https://github.com/minimaxir/big-list-of-naughty-strings
 # Запуск тестов 
-`mvn surefire:test`
+`mvn test`
